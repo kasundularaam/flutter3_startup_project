@@ -1,6 +1,7 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class AppColors {
+  static const int themeColor = 0xFFFF0000;
   static const Color primaryColor = Color(0xFFFF0000);
   static const Color darkElv0 = Color(0xFF000000);
   static const Color darkElv1 = Color(0xFF252525);
