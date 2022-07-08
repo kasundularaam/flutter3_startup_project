@@ -15,10 +15,10 @@ class AppTextStyles {
       fontWeight: FontWeight.bold);
 
   static TextStyle h1Light = TextStyle(
-      color: AppColors.lightElv0, fontSize: 18.sp, fontWeight: FontWeight.bold);
+      color: AppColors.light0, fontSize: 18.sp, fontWeight: FontWeight.bold);
 
   static TextStyle h1Dark = TextStyle(
-      color: AppColors.darkElv0, fontSize: 18.sp, fontWeight: FontWeight.bold);
+      color: AppColors.dark0, fontSize: 18.sp, fontWeight: FontWeight.bold);
 
   // h2
 
@@ -31,10 +31,10 @@ class AppTextStyles {
       fontWeight: FontWeight.bold);
 
   static TextStyle h2Light = TextStyle(
-      color: AppColors.lightElv0, fontSize: 14.sp, fontWeight: FontWeight.bold);
+      color: AppColors.light0, fontSize: 14.sp, fontWeight: FontWeight.bold);
 
   static TextStyle h2Dark = TextStyle(
-      color: AppColors.darkElv0, fontSize: 14.sp, fontWeight: FontWeight.bold);
+      color: AppColors.dark0, fontSize: 14.sp, fontWeight: FontWeight.bold);
 
   // h3
 
@@ -47,10 +47,10 @@ class AppTextStyles {
       fontWeight: FontWeight.bold);
 
   static TextStyle h3Light = TextStyle(
-      color: AppColors.lightElv0, fontSize: 12.sp, fontWeight: FontWeight.bold);
+      color: AppColors.light0, fontSize: 12.sp, fontWeight: FontWeight.bold);
 
   static TextStyle h3Dark = TextStyle(
-      color: AppColors.darkElv0, fontSize: 12.sp, fontWeight: FontWeight.bold);
+      color: AppColors.dark0, fontSize: 12.sp, fontWeight: FontWeight.bold);
 
   // p1
 
@@ -65,12 +65,12 @@ class AppTextStyles {
   );
 
   static TextStyle p1Light = TextStyle(
-    color: AppColors.lightElv0,
+    color: AppColors.light0,
     fontSize: 14.sp,
   );
 
   static TextStyle p1Dark = TextStyle(
-    color: AppColors.darkElv0,
+    color: AppColors.dark0,
     fontSize: 14.sp,
   );
 
@@ -87,12 +87,12 @@ class AppTextStyles {
   );
 
   static TextStyle p2Light = TextStyle(
-    color: AppColors.lightElv0,
+    color: AppColors.light0,
     fontSize: 12.sp,
   );
 
   static TextStyle p2Dark = TextStyle(
-    color: AppColors.darkElv0,
+    color: AppColors.dark0,
     fontSize: 12.sp,
   );
 
@@ -109,12 +109,12 @@ class AppTextStyles {
   );
 
   static TextStyle p3Light = TextStyle(
-    color: AppColors.lightElv0,
+    color: AppColors.light0,
     fontSize: 10.sp,
   );
 
   static TextStyle p3Dark = TextStyle(
-    color: AppColors.darkElv0,
+    color: AppColors.dark0,
     fontSize: 10.sp,
   );
 }

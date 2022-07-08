@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/components/components.dart';
+import '../../../../core/themes/app_colors.dart';
 
 class ProfileTab extends StatefulWidget {
   const ProfileTab({Key? key}) : super(key: key);
@@ -12,6 +13,11 @@ class ProfileTab extends StatefulWidget {
 class _ProfileTabState extends State<ProfileTab> {
   @override
   Widget build(BuildContext context) {
-    return Center(child: textP("Profile Tab", 14));
+    return Container(
+      color: AppColors.light1,
+      child: Center(
+        child: textP("Profile Tab", 14),
+      ),
+    );
   }
 }

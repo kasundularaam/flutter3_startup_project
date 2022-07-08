@@ -26,11 +26,11 @@ class _LandingPageState extends State<LandingPage> {
           navAndClear(context, AppRouter.loginPage);
         }
         if (state is LandingToHome) {
-          navAndClear(context, AppRouter.homePage);
+          navAndClear(context, AppRouter.homePage, args: state.appUser);
         }
       },
-      child: Scaffold(
-        body: Center(
+      child: page(
+        Center(
           child: textP(Strings.appTitle, 22, bold: true),
         ),
       ),

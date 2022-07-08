@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:sizer/sizer.dart';
 
 import '../themes/app_colors.dart';
@@ -7,6 +8,31 @@ showSnackBar(BuildContext context, String message) {
   SnackBar snackBar = SnackBar(content: Text(message));
   ScaffoldMessenger.of(context).showSnackBar(snackBar);
 }
+
+Widget page(Widget body) => AnnotatedRegion<SystemUiOverlayStyle>(
+      value: const SystemUiOverlayStyle(
+        statusBarColor: AppColors.primaryColor,
+        statusBarIconBrightness: Brightness.light,
+      ),
+      child: Scaffold(
+        backgroundColor: AppColors.light1,
+        body: SafeArea(child: body),
+      ),
+    );
+
+Widget bottomNavPage(Widget body, BottomNavigationBar bar) =>
+    AnnotatedRegion<SystemUiOverlayStyle>(
+      value: const SystemUiOverlayStyle(
+        statusBarColor: AppColors.primaryColor,
+        statusBarIconBrightness: Brightness.light,
+      ),
+      child: Scaffold(
+          backgroundColor: AppColors.primaryColor,
+          body: SafeArea(
+            child: body,
+          ),
+          bottomNavigationBar: bar),
+    );
 
 Widget vSpacer(double height) => SizedBox(height: height.h);
 Widget hSpacer(double width) => SizedBox(width: width.w);
@@ -55,7 +81,7 @@ Widget textD(String data, double size, {bool? bold, TextAlign? align}) {
     data,
     textAlign: align,
     style: TextStyle(
-        color: AppColors.darkElv1,
+        color: AppColors.dark1,
         fontSize: size.sp,
         fontWeight: bold ? FontWeight.bold : FontWeight.normal),
   );
@@ -67,7 +93,7 @@ Widget textL(String data, double size, {bool? bold, TextAlign? align}) {
     data,
     textAlign: align,
     style: TextStyle(
-        color: AppColors.lightElv0,
+        color: AppColors.light0,
         fontSize: size.sp,
         fontWeight: bold ? FontWeight.bold : FontWeight.normal),
   );
@@ -199,7 +225,7 @@ Widget buttonFilledP(String text, Function onTap) => ElevatedButton(
       child: Text(
         text,
         style: TextStyle(
-          color: AppColors.lightElv0,
+          color: AppColors.light0,
           fontSize: 14.sp,
           fontWeight: FontWeight.bold,
         ),
@@ -226,7 +252,7 @@ Widget buttonFilled(String text, Function onTap, Color color) => ElevatedButton(
       child: Text(
         text,
         style: TextStyle(
-          color: AppColors.lightElv0,
+          color: AppColors.light0,
           fontSize: 14.sp,
           fontWeight: FontWeight.bold,
         ),
