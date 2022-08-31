@@ -1,0 +1,13 @@
+{
+    "app_name":"Starter Project",
+    "login":"Login",
+    "register":"Register",
+    "name":"Name",
+    "email":"Email",
+    "phone":"Phone",
+    "address":"Address",
+    "age":"Age",
+    "password":"Password",
+    "has_account":"Already have an account?",
+    "no_account":"Do you haven't an account?"
+}
