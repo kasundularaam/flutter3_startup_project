@@ -11,4 +11,8 @@ class AppColors {
   static const Color light1 = Color(0xFFF2F2F2);
   static const Color light3 = Color(0xFFE5E5E5);
   static const Color light4 = Color(0xFFD9D9D9);
+
+  static const Color info = Color(0xFF0000FF);
+  static const Color succeed = Color(0xFF00FF00);
+  static const Color error = Color(0xFFFF0000);
 }

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../core/components/components.dart';
-import '../../../core/themes/app_colors.dart';
+import '../../../core/components/app_pages.dart';
 import '../../../data/models/app_user.dart';
 import 'tabs/home_tab.dart';
 import 'tabs/profile_tab.dart';
@@ -30,34 +29,16 @@ class _HomePageState extends State<HomePage> {
   ];
 
   @override
-  Widget build(BuildContext context) {
-    return bottomNavPage(
-      _widgetOptions.elementAt(_selectedIndex),
-      BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.home_rounded,
-            ),
-            label: "Home",
-            backgroundColor: AppColors.primaryColor,
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.person_rounded,
-            ),
-            label: "Profile",
-            backgroundColor: AppColors.primaryColor,
-          ),
-        ],
-        type: BottomNavigationBarType.shifting,
-        currentIndex: _selectedIndex,
-        selectedItemColor: AppColors.light0,
-        unselectedItemColor: AppColors.light0.withOpacity(0.7),
-        iconSize: 40,
-        onTap: _onItemTapped,
-        elevation: 5,
-      ),
-    );
-  }
+  Widget build(BuildContext context) => AppPage(
+        appBar: AppBar(),
+        body: _widgetOptions.elementAt(_selectedIndex),
+        bottomNavigationBar: appBottomNavBar(
+          items: [
+            appBottomNavItem(icon: Icons.home_rounded, label: "Home"),
+            appBottomNavItem(icon: Icons.person_rounded, label: "Profile")
+          ],
+          onItemTapped: (index) => _onItemTapped,
+          selectedIndex: 1,
+        ),
+      );
 }
