@@ -1,9 +1,8 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-import 'package:flutter3_startup_project/core/components/components.dart';
 import 'package:sizer/sizer.dart';
 
 import '../themes/app_colors.dart';
+import 'components.dart';
 
 TextStyle textStyle({Color? color}) => TextStyle(
       color: color ?? AppColors.light0,

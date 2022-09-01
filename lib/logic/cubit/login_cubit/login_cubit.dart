@@ -1,9 +1,7 @@
-import 'dart:math';
-
 import 'package:equatable/equatable.dart';
-import 'package:flutter3_startup_project/data/http/http_services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../data/http/http_services.dart';
 import '../../../data/models/app_user.dart';
 
 part 'login_state.dart';

@@ -21,7 +21,7 @@ class AppRouter {
         );
       case homePage:
         return MaterialPageRoute(
-          builder: (_) => HomePage(),
+          builder: (_) => const HomePage(),
         );
       case loginPage:
         return MaterialPageRoute(
