@@ -1,13 +1,19 @@
 {
-    "app_name":"Starter Project",
-    "login":"Login",
-    "register":"Register",
-    "name":"Name",
-    "email":"Email",
-    "phone":"Phone",
-    "address":"Address",
-    "age":"Age",
-    "password":"Password",
-    "has_account":"Already have an account?",
-    "no_account":"Do you haven't an account?"
+    "app_name":"ආරම්භක ව්යාපෘතිය",
+    "login":"ඇතුල් වන්න",
+    "register":"ලියාපදිංචි කරන්න",
+    "name":"නම",
+    "email":"විද්යුත් තැපෑල",
+    "phone":"දුරකථන",
+    "address":"ලිපිනය",
+    "age":"වයස",
+    "password":"මුරපදය",
+    "confirm_password":"මුරපදය තහවුරු කරන්න",
+    "register_succeed":"සාර්ථකව ලියාපදිංචි විය!",
+    "login_succeed":"සාර්ථකව පුරනය වී ඇත!",
+    "has_account":"දැනටමත් ගිණුමක් තිබේද?",
+    "no_account":"ඔබට ගිණුමක් නැද්ද?",
+
+    "home":"මුල් පිටුව",
+    "profile":"පැතිකඩ"
 }

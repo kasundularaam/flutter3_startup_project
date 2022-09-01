@@ -34,6 +34,8 @@ class _LandingPageState extends State<LandingPage> {
       },
       child: AppPage(
         body: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset(AssetsPaths.landing),
             AppText(

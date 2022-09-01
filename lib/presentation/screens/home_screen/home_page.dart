@@ -26,15 +26,14 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) => AppPage(
-        appBar: AppBar(),
         body: _widgetOptions.elementAt(_selectedIndex),
         bottomNavigationBar: appBottomNavBar(
           items: [
             appBottomNavItem(icon: Icons.home_rounded, label: "home".tr()),
             appBottomNavItem(icon: Icons.person_rounded, label: "profile".tr())
           ],
-          onItemTapped: (index) => _onItemTapped,
-          selectedIndex: 1,
+          onItemTapped: (index) => _onItemTapped(index),
+          selectedIndex: _selectedIndex,
         ),
       );
 }
