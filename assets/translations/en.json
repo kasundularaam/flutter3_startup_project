@@ -8,6 +8,14 @@
     "address":"Address",
     "age":"Age",
     "password":"Password",
+    "confirm_password":"Confirm Password",
+    "register_succeed":"Successfully registered!",
+    "login_succeed":"Successfully logged in!",
     "has_account":"Already have an account?",
-    "no_account":"Do you haven't an account?"
+    "no_account":"Do you haven't an account?",
+
+    "home":"Home",
+    "profile":"Profile"
+
+
 }

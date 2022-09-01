@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../core/exceptions/route_exception.dart';
-import '../../data/models/app_user.dart';
-import '../../logic/cubit/landing_cubit/landing_cubit.dart';
 import '../screens/auth/login_screen/login_page.dart';
 import '../screens/auth/register_screen/register_page.dart';
 import '../screens/home_screen/home_page.dart';
@@ -20,25 +17,19 @@ class AppRouter {
     switch (settings.name) {
       case landingPage:
         return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (context) => LandingCubit(),
-            child: const LandingPage(),
-          ),
+          builder: (_) => const LandingPage(),
         );
       case homePage:
-        final AppUser appUser = settings.arguments as AppUser;
         return MaterialPageRoute(
-          builder: (_) => HomePage(
-            appUser: appUser,
-          ),
+          builder: (_) => HomePage(),
         );
       case loginPage:
         return MaterialPageRoute(
-          builder: (_) => const LoginPage(),
+          builder: (_) => LoginPage(),
         );
       case registerPage:
         return MaterialPageRoute(
-          builder: (_) => const RegisterPage(),
+          builder: (_) => RegisterPage(),
         );
       default:
         throw const RouteException('Route not found!');

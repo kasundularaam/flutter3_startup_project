@@ -1,6 +1,7 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../core/components/components.dart';
+import '../../../../core/components/app_texts.dart';
 import '../../../../core/themes/app_colors.dart';
 
 class ProfileTab extends StatefulWidget {
@@ -16,7 +17,7 @@ class _ProfileTabState extends State<ProfileTab> {
     return Container(
       color: AppColors.light1,
       child: Center(
-        child: textP("Profile Tab", 14),
+        child: AppHeading(text: "profile".tr()),
       ),
     );
   }

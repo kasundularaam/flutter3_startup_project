@@ -4,4 +4,5 @@ class DataProvider {
   static String user(String uid) => "$url/api/users/$uid";
 
   static String get users => "$url/api/users";
+  static String get login => "$url/api/login";
 }

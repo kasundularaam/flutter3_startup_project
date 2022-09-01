@@ -5,6 +5,7 @@ import 'package:sizer/sizer.dart';
 
 import 'core/constants/strings.dart';
 import 'logic/bloc/theme_bloc/theme_bloc.dart';
+import 'logic/cubit/auth_cubit/auth_cubit.dart';
 import 'presentation/router/app_router.dart';
 
 void main() async {
@@ -25,8 +26,15 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Sizer(builder: (context, orientation, deviceType) {
-      return BlocProvider(
-        create: (context) => ThemeBloc(),
+      return MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (context) => ThemeBloc(),
+          ),
+          BlocProvider(
+            create: (context) => AuthCubit(),
+          )
+        ],
         child: BlocBuilder<ThemeBloc, ThemeState>(
           builder: _buildWithTheme,
         ),

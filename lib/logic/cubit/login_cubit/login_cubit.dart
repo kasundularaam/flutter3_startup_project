@@ -1,6 +1,10 @@
-import 'package:flutter3_startup_project/data/models/app_user.dart';
-import 'package:flutter3_startup_project/main.dart';
+import 'dart:math';
+
+import 'package:equatable/equatable.dart';
+import 'package:flutter3_startup_project/data/http/http_services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../../data/models/app_user.dart';
 
 part 'login_state.dart';
 
@@ -11,8 +15,10 @@ class LoginCubit extends Cubit<LoginState> {
     try {
       emit(LoginLoading());
       Future.delayed(const Duration(seconds: 3));
-      final AppUser appUser = AppUser(uid: uid, name: name)
-      emit(state)
+      HttpServices services = HttpServices();
+      final AppUser appUser =
+          await services.login(email: email, password: password);
+      emit(LoginSucceed(appUser: appUser));
     } catch (e) {
       emit(LoginFailed(message: e.toString()));
     }

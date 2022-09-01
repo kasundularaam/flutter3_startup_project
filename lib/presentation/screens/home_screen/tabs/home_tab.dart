@@ -1,7 +1,8 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter3_startup_project/core/themes/app_colors.dart';
 
-import '../../../../core/components/components.dart';
+import '../../../../core/components/app_texts.dart';
+import '../../../../core/themes/app_colors.dart';
 
 class HomeTab extends StatefulWidget {
   const HomeTab({Key? key}) : super(key: key);
@@ -16,7 +17,7 @@ class _HomeTabState extends State<HomeTab> {
     return Container(
       color: AppColors.light1,
       child: Center(
-        child: textP("Home Tab", 14),
+        child: AppHeading(text: "home".tr()),
       ),
     );
   }
