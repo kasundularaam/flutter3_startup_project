@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../data/http/http_services.dart';
+import '../../../data/http/http_auth.dart';
 import '../../../data/models/app_user.dart';
 import '../../../data/models/register_req.dart';
 
@@ -14,7 +14,7 @@ class RegisterCubit extends Cubit<RegisterState> {
     try {
       emit(RegisterLoading());
       Future.delayed(const Duration(seconds: 3));
-      HttpServices services = HttpServices();
+      HttpAuth services = HttpAuth();
       final AppUser appUser = await services.register(registerReq: registerReq);
       emit(RegisterSucceed(appUser: appUser));
     } catch (e) {

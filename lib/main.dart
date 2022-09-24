@@ -5,8 +5,8 @@ import 'package:sizer/sizer.dart';
 
 import 'core/constants/strings.dart';
 import 'core/themes/app_theme.dart';
-import 'logic/cubit/auth_cubit/auth_cubit.dart';
-import 'logic/cubit/theme_cubit/theme_cubit.dart';
+import 'logic/auth_cubit/auth_cubit.dart';
+import 'logic/theme_cubit/theme_cubit.dart';
 import 'presentation/router/app_router.dart';
 
 void main() async {
@@ -17,10 +17,7 @@ void main() async {
         supportedLocales: const [Locale('en'), Locale('si')],
         path: 'assets/translations',
         fallbackLocale: const Locale('en'),
-        child: BlocProvider(
-          create: (context) => ThemeCubit(),
-          child: const App(),
-        )),
+        child: const App()),
   );
 }
 
@@ -29,27 +26,61 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    BlocProvider.of<ThemeCubit>(context).loadTheme();
-    return Sizer(builder: (context, orientation, deviceType) {
-      return BlocProvider(
-        create: (context) => AuthCubit(),
-        child: BlocBuilder<ThemeCubit, ThemeState>(
-          builder: _buildWithTheme,
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => ThemeCubit(),
         ),
-      );
-    });
+        BlocProvider(
+          create: (context) => AuthCubit(),
+        )
+      ],
+      child: const EnterApp(),
+    );
+  }
+}
+
+class EnterApp extends StatefulWidget {
+  const EnterApp({Key? key}) : super(key: key);
+
+  @override
+  State<EnterApp> createState() => _EnterAppState();
+}
+
+class _EnterAppState extends State<EnterApp> with WidgetsBindingObserver {
+  @override
+  void initState() {
+    WidgetsBinding.instance.addObserver(this);
+    super.initState();
   }
 
-  Widget _buildWithTheme(BuildContext context, ThemeState state) {
-    return MaterialApp(
-      title: Strings.appTitle,
-      theme: state.appTheme == AppTheme.lightTheme ? lightTheme : darkTheme,
-      darkTheme: darkTheme,
-      localizationsDelegates: context.localizationDelegates,
-      supportedLocales: context.supportedLocales,
-      locale: context.locale,
-      debugShowCheckedModeBanner: false,
-      onGenerateRoute: AppRouter.onGenerateRoute,
-    );
+  @override
+  void didChangePlatformBrightness() {
+    context.read<ThemeCubit>().setTheme();
+    super.didChangePlatformBrightness();
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Sizer(builder: (context, orientation, deviceType) {
+      return MaterialApp(
+        title: Strings.appTitle,
+        theme: AppTheme.lightTheme,
+        darkTheme: AppTheme.darkTheme,
+        themeMode: context
+            .select((ThemeCubit themeCubit) => themeCubit.state.themeMode),
+        localizationsDelegates: context.localizationDelegates,
+        supportedLocales: context.supportedLocales,
+        locale: context.locale,
+        debugShowCheckedModeBanner: false,
+        onGenerateRoute: AppRouter.onGenerateRoute,
+      );
+    });
   }
 }

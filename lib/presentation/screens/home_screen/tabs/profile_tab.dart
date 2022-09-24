@@ -1,8 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../core/components/app_navigation.dart';
-import '../../../../core/components/app_pages.dart';
+import '../../../components/app_navigation.dart';
+import '../../../components/app_pages.dart';
 import '../../../router/app_router.dart';
 
 class ProfileTab extends StatefulWidget {
@@ -17,7 +17,7 @@ class _ProfileTabState extends State<ProfileTab> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        appBar(title: "profile".tr(), actions: [
+        AppAppBar(title: "profile".tr(), actions: [
           IconButton(
               onPressed: () =>
                   navPush(context: context, route: AppRouter.settingsPage),

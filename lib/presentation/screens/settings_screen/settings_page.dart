@@ -1,19 +1,19 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sizer/sizer.dart';
 
-import '../../../core/components/app_pages.dart';
-import '../../../core/components/app_texts.dart';
-import '../../../core/themes/app_theme.dart';
-import '../../../logic/cubit/theme_cubit/theme_cubit.dart';
+import '../../../logic/theme_cubit/theme_cubit.dart';
+import '../../components/app_pages.dart';
+import '../../components/app_texts.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) => AppPage(
-        appBar: appBar(
-          title: "settings",
+        appBar: AppAppBar(
+          title: "setting".tr(),
         ),
         body: Column(
           children: [
@@ -24,24 +24,36 @@ class SettingsPage extends StatelessWidget {
                   builder: (context, state) {
                     return Column(
                       children: [
-                        const AppText(text: "Theme"),
+                        const HeadlineMedium(text: "Theme"),
                         RadioListTile(
-                          value: AppTheme.lightTheme,
-                          groupValue: state.appTheme,
+                          value: ThemeMode.light,
+                          groupValue: state.themeMode,
                           onChanged: (value) =>
-                              BlocProvider.of<ThemeCubit>(context).setTheme(
-                            appTheme: AppTheme.lightTheme,
+                              BlocProvider.of<ThemeCubit>(context)
+                                  .changeAppTheme(
+                            themeMode: ThemeMode.light,
                           ),
-                          title: const AppText(text: "Light"),
+                          title: const BodyMedium(text: "Light"),
                         ),
                         RadioListTile(
-                          value: AppTheme.darkTheme,
-                          groupValue: state.appTheme,
+                          value: ThemeMode.dark,
+                          groupValue: state.themeMode,
                           onChanged: (value) =>
-                              BlocProvider.of<ThemeCubit>(context).setTheme(
-                            appTheme: AppTheme.darkTheme,
+                              BlocProvider.of<ThemeCubit>(context)
+                                  .changeAppTheme(
+                            themeMode: ThemeMode.dark,
                           ),
-                          title: const AppText(text: "Dark"),
+                          title: const BodyMedium(text: "Dark"),
+                        ),
+                        RadioListTile(
+                          value: ThemeMode.system,
+                          groupValue: state.themeMode,
+                          onChanged: (value) =>
+                              BlocProvider.of<ThemeCubit>(context)
+                                  .changeAppTheme(
+                            themeMode: ThemeMode.system,
+                          ),
+                          title: const BodyMedium(text: "System"),
                         )
                       ],
                     );

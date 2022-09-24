@@ -4,10 +4,10 @@ import '../../core/configs/configs.dart';
 import '../models/app_user.dart';
 import '../models/register_req.dart';
 
-class HttpServices {
+class HttpAuth {
   Dio dio = Dio();
 
-  HttpServices() {
+  HttpAuth() {
     dio.options.baseUrl = url;
     dio.options.connectTimeout = 5000;
     dio.options.receiveTimeout = 3000;

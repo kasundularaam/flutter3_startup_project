@@ -1,6 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import '../../../core/components/app_pages.dart';
+import '../../components/app_pages.dart';
 import 'tabs/home_tab.dart';
 import 'tabs/profile_tab.dart';
 
@@ -27,13 +27,6 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) => AppPage(
         body: _widgetOptions.elementAt(_selectedIndex),
-        bottomNavigationBar: appBottomNavBar(
-          items: [
-            appBottomNavItem(icon: Icons.home_rounded, label: "home".tr()),
-            appBottomNavItem(icon: Icons.person_rounded, label: "profile".tr())
-          ],
-          onItemTapped: (index) => _onItemTapped(index),
-          selectedIndex: _selectedIndex,
-        ),
+        navBar: BottomNavBar(),
       );
 }

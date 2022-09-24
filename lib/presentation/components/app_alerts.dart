@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
-import '../themes/app_colors.dart';
+import '../../core/themes/app_colors.dart';
 import 'app_texts.dart';
 
 showInfoBar(BuildContext context, String message) {
@@ -9,7 +9,7 @@ showInfoBar(BuildContext context, String message) {
     content: Row(
       children: [
         Expanded(
-          child: AppText(
+          child: BodySmall(
             text: message,
             color: AppColors.info,
           ),
@@ -30,7 +30,7 @@ showErrorBar(BuildContext context, String message) {
     content: Row(
       children: [
         Expanded(
-          child: AppText(
+          child: BodySmall(
             text: message,
             color: AppColors.error,
           ),
@@ -51,7 +51,7 @@ showSucceedBar(BuildContext context, String message) {
     content: Row(
       children: [
         Expanded(
-          child: AppText(
+          child: BodySmall(
             text: message,
             color: AppColors.succeed,
           ),

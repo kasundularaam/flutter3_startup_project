@@ -1,7 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../core/components/app_pages.dart';
+import '../../../components/app_pages.dart';
 
 class HomeTab extends StatefulWidget {
   const HomeTab({Key? key}) : super(key: key);
@@ -14,7 +14,7 @@ class _HomeTabState extends State<HomeTab> {
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: [appBar(title: "home".tr())],
+      children: [AppAppBar(title: "home".tr())],
     );
   }
 }

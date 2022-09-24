@@ -1,22 +1,30 @@
+import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../../core/themes/app_theme.dart';
-
 class SharedTheme {
-  static const String isDarkKey = "isDarkKey";
+  static const String themeKey = "themeKey";
 
-  static Future<bool> isDark() async {
+  static Future<ThemeMode> getTheme() async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
-    bool isDark = preferences.getBool(isDarkKey) ?? false;
-    return isDark;
+    final String theme = preferences.getString(themeKey) ?? "system";
+    if (theme == "light") {
+      return ThemeMode.light;
+    }
+    if (theme == "dark") {
+      return ThemeMode.dark;
+    }
+    return ThemeMode.system;
   }
 
-  static Future setTheme({required AppTheme appTheme}) async {
+  static Future setTheme({required ThemeMode themeMode}) async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
-    if (appTheme == AppTheme.lightTheme) {
-      preferences.setBool(isDarkKey, false);
+    if (themeMode == ThemeMode.light) {
+      preferences.setString(themeKey, "light");
+    }
+    if (themeMode == ThemeMode.dark) {
+      preferences.setString(themeKey, "dark");
     } else {
-      preferences.setBool(isDarkKey, true);
+      preferences.setString(themeKey, "system");
     }
   }
 }

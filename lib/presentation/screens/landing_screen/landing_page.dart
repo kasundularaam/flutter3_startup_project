@@ -1,12 +1,12 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../core/components/app_alerts.dart';
-import '../../../core/components/app_navigation.dart';
-import '../../../core/components/app_pages.dart';
-import '../../../core/components/app_texts.dart';
+import '../../../logic/auth_cubit/auth_cubit.dart';
+import '../../components/app_alerts.dart';
+import '../../components/app_navigation.dart';
 import '../../../core/constants/assets_paths.dart';
-import '../../../logic/cubit/auth_cubit/auth_cubit.dart';
+import '../../components/app_pages.dart';
+import '../../components/app_texts.dart';
 import '../../router/app_router.dart';
 
 class LandingPage extends StatefulWidget {
@@ -38,7 +38,7 @@ class _LandingPageState extends State<LandingPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset(AssetsPaths.landing),
-            AppText(
+            HeadlineMedium(
               text: "app_name".tr(),
             )
           ],
