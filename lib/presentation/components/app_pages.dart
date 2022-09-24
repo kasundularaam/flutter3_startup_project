@@ -1,6 +1,7 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter3_startup_project/core/themes/app_theme.dart';
+import 'package:sizer/sizer.dart';
 
 import 'components.dart';
 
@@ -51,7 +52,10 @@ class AppAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 1.h),
+      decoration: BoxDecoration(color: Theme.of(context).foregroundColor),
+    );
   }
 }
 
