@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter3_startup_project/core/themes/app_theme.dart';
-import 'package:sizer/sizer.dart';
 
-import 'components.dart';
+import 'app_texts.dart';
 
 class AppPage extends StatelessWidget {
   final Widget body;
@@ -18,25 +16,25 @@ class AppPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AnnotatedRegion<SystemUiOverlayStyle>(
-      value: SystemUiOverlayStyle(
-        statusBarColor: Theme.of(context).backgroundColor,
-        statusBarIconBrightness: Theme.of(context).brightness,
-      ),
-      child: Scaffold(
+    if (appBar != null) {
+      return Scaffold(
         backgroundColor: Theme.of(context).backgroundColor,
         body: SafeArea(
-          child: appBar != null
-              ? Column(
-                  children: [
-                    appBar ?? const Nothing(),
-                    Expanded(child: body),
-                  ],
-                )
-              : body,
+          child: NestedScrollView(
+            headerSliverBuilder: (context, innerBoxIsScrolled) => [appBar!],
+            floatHeaderSlivers: true,
+            body: body,
+          ),
         ),
         bottomNavigationBar: navBar,
+      );
+    }
+    return Scaffold(
+      backgroundColor: Theme.of(context).backgroundColor,
+      body: SafeArea(
+        child: body,
       ),
+      bottomNavigationBar: navBar,
     );
   }
 }
@@ -52,9 +50,13 @@ class AppAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 1.h),
-      decoration: BoxDecoration(color: Theme.of(context).foregroundColor),
+    return SliverAppBar(
+      title: HeadlineMedium(text: title),
+      elevation: 0,
+      backgroundColor: Theme.of(context).foregroundColor,
+      foregroundColor: Theme.of(context).onGroundColorLow,
+      centerTitle: true,
+      actions: actions,
     );
   }
 }

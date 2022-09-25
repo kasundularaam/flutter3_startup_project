@@ -38,15 +38,18 @@ class AppTheme {
 }
 
 extension ThemeExtras on ThemeData {
-  Color get foregroundColor => brightness == Brightness.light
-      ? AppColors.darkForegroundColor
-      : AppColors.lightForegroundColor;
+  Color get foregroundColor =>
+      AppTheme.currentSystemBrightness == Brightness.light
+          ? AppColors.lightForegroundColor
+          : AppColors.darkForegroundColor;
 
-  Color get onGroundColor => brightness == Brightness.light
-      ? AppColors.darkOnGroundColor
-      : AppColors.lightOnGroundColor;
+  Color get onGroundColor =>
+      AppTheme.currentSystemBrightness == Brightness.light
+          ? AppColors.lightOnGroundColor
+          : AppColors.darkOnGroundColor;
 
-  Color get onGroundColorLow => brightness == Brightness.light
-      ? AppColors.darkOnGroundColorLow
-      : AppColors.lightOnGroundColorLow;
+  Color get onGroundColorLow =>
+      AppTheme.currentSystemBrightness == Brightness.light
+          ? AppColors.lightOnGroundColorLow
+          : AppColors.darkOnGroundColorLow;
 }

@@ -18,7 +18,19 @@ class ThemeCubit extends Cubit<ThemeState> {
 
   void setTheme() async {
     final ThemeMode selected = await SharedTheme.getTheme();
-    AppTheme.setStatusBarAndNavigationBarColors(selected);
-    emit(ThemeState(themeMode: selected));
+    if (selected == ThemeMode.system) {
+      final Brightness brightness = AppTheme.currentSystemBrightness;
+      if (brightness == Brightness.dark) {
+        AppTheme.setStatusBarAndNavigationBarColors(ThemeMode.dark);
+        emit(ThemeState(themeMode: ThemeMode.dark));
+      }
+      if (brightness == Brightness.light) {
+        AppTheme.setStatusBarAndNavigationBarColors(ThemeMode.light);
+        emit(ThemeState(themeMode: ThemeMode.light));
+      }
+    } else {
+      AppTheme.setStatusBarAndNavigationBarColors(selected);
+      emit(ThemeState(themeMode: selected));
+    }
   }
 }

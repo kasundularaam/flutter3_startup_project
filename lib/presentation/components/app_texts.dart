@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter3_startup_project/core/themes/app_theme.dart';
+import 'package:sizer/sizer.dart';
 
 class BodyLarge extends StatelessWidget {
   final String text;
@@ -18,12 +19,11 @@ class BodyLarge extends StatelessWidget {
       text,
       maxLines: maxLines,
       overflow: TextOverflow.ellipsis,
-      style: color != null
-          ? Theme.of(context).textTheme.bodyLarge!.copyWith(color: color)
-          : Theme.of(context)
-              .textTheme
-              .bodyLarge!
-              .copyWith(color: Theme.of(context).onGroundColor),
+      style: TextStyle(
+        fontSize: 18.sp,
+        fontWeight: FontWeight.w400,
+        color: color ?? Theme.of(context).onGroundColor,
+      ),
     );
   }
 }
@@ -45,12 +45,11 @@ class BodyMedium extends StatelessWidget {
       text,
       maxLines: maxLines,
       overflow: TextOverflow.ellipsis,
-      style: color != null
-          ? Theme.of(context).textTheme.bodyMedium!.copyWith(color: color)
-          : Theme.of(context)
-              .textTheme
-              .bodyMedium!
-              .copyWith(color: Theme.of(context).onGroundColor),
+      style: TextStyle(
+        fontSize: 14.sp,
+        fontWeight: FontWeight.w400,
+        color: color ?? Theme.of(context).onGroundColor,
+      ),
     );
   }
 }
@@ -72,12 +71,11 @@ class BodySmall extends StatelessWidget {
       text,
       maxLines: maxLines,
       overflow: TextOverflow.ellipsis,
-      style: color != null
-          ? Theme.of(context).textTheme.bodySmall!.copyWith(color: color)
-          : Theme.of(context)
-              .textTheme
-              .bodySmall!
-              .copyWith(color: Theme.of(context).onGroundColor),
+      style: TextStyle(
+        fontSize: 10.sp,
+        fontWeight: FontWeight.w400,
+        color: color ?? Theme.of(context).onGroundColor,
+      ),
     );
   }
 }
@@ -99,12 +97,11 @@ class HeadlineLarge extends StatelessWidget {
       text,
       maxLines: maxLines,
       overflow: TextOverflow.ellipsis,
-      style: color != null
-          ? Theme.of(context).textTheme.headlineLarge!.copyWith(color: color)
-          : Theme.of(context)
-              .textTheme
-              .headlineLarge!
-              .copyWith(color: Theme.of(context).onGroundColor),
+      style: TextStyle(
+        fontSize: 32.sp,
+        fontWeight: FontWeight.w700,
+        color: color ?? Theme.of(context).onGroundColor,
+      ),
     );
   }
 }
@@ -122,15 +119,16 @@ class HeadlineMedium extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(text,
-        maxLines: maxLines,
-        overflow: TextOverflow.ellipsis,
-        style: color != null
-            ? Theme.of(context).textTheme.headlineMedium!.copyWith(color: color)
-            : Theme.of(context)
-                .textTheme
-                .headlineMedium!
-                .copyWith(color: Theme.of(context).onGroundColor));
+    return Text(
+      text,
+      maxLines: maxLines,
+      overflow: TextOverflow.ellipsis,
+      style: TextStyle(
+        fontSize: 22.sp,
+        fontWeight: FontWeight.w700,
+        color: color ?? Theme.of(context).onGroundColor,
+      ),
+    );
   }
 }
 
@@ -151,12 +149,11 @@ class HeadlineSmall extends StatelessWidget {
       text,
       maxLines: maxLines,
       overflow: TextOverflow.ellipsis,
-      style: color != null
-          ? Theme.of(context).textTheme.headlineSmall!.copyWith(color: color)
-          : Theme.of(context)
-              .textTheme
-              .headlineSmall!
-              .copyWith(color: Theme.of(context).onGroundColor),
+      style: TextStyle(
+        fontSize: 14.sp,
+        fontWeight: FontWeight.w700,
+        color: color ?? Theme.of(context).onGroundColor,
+      ),
     );
   }
 }
