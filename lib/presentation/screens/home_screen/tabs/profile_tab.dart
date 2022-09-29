@@ -1,9 +1,10 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter3_startup_project/presentation/components/app_buttons.dart';
+import 'package:flutter3_startup_project/presentation/components/app_navigation.dart';
+import 'package:flutter3_startup_project/presentation/components/app_pages.dart';
+import 'package:flutter3_startup_project/presentation/router/app_router.dart';
 
-import '../../../components/app_navigation.dart';
-import '../../../components/app_pages.dart';
-import '../../../router/app_router.dart';
+import '../../../components/app_texts.dart';
 
 class ProfileTab extends StatefulWidget {
   const ProfileTab({Key? key}) : super(key: key);
@@ -15,15 +16,20 @@ class ProfileTab extends StatefulWidget {
 class _ProfileTabState extends State<ProfileTab> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        AppAppBar(title: "profile".tr(), actions: [
-          IconButton(
-              onPressed: () =>
-                  navPush(context: context, route: AppRouter.settingsPage),
-              icon: const Icon(Icons.settings_rounded))
-        ])
-      ],
+    return AppTab(
+      appBar: AppAppBar(
+        title: "Profile",
+        actions: [
+          ButtonText(
+            onPressed: () =>
+                navPush(context: context, route: AppRouter.settingsPage),
+            icon: Icons.ac_unit,
+          )
+        ],
+      ),
+      body: HeadlineLarge(
+        text: "HELLO",
+      ),
     );
   }
 }

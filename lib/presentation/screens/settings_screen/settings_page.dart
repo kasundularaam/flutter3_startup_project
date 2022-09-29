@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter3_startup_project/core/themes/app_theme.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sizer/sizer.dart';
 
@@ -17,48 +18,38 @@ class SettingsPage extends StatelessWidget {
         ),
         body: Column(
           children: [
-            Card(
-              child: Padding(
-                padding: EdgeInsets.all(3.w),
-                child: BlocBuilder<ThemeCubit, ThemeState>(
-                  builder: (context, state) {
-                    return Column(
-                      children: [
-                        const HeadlineMedium(text: "Theme"),
-                        RadioListTile(
-                          value: ThemeMode.light,
-                          groupValue: state.themeMode,
-                          onChanged: (value) =>
-                              BlocProvider.of<ThemeCubit>(context)
-                                  .changeAppTheme(
-                            themeMode: ThemeMode.light,
-                          ),
-                          title: const BodyMedium(text: "Light"),
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 2.h),
+              margin: const EdgeInsets.all(8.0),
+              decoration: BoxDecoration(
+                  color: Theme.of(context).foregroundColor,
+                  borderRadius: BorderRadius.circular(5)),
+              child: BlocBuilder<ThemeCubit, ThemeState>(
+                builder: (context, state) {
+                  return Column(
+                    children: [
+                      const HeadlineMedium(text: "Theme"),
+                      RadioListTile<ThemeMode>(
+                        value: ThemeMode.light,
+                        groupValue: state.themeMode,
+                        onChanged: (value) =>
+                            BlocProvider.of<ThemeCubit>(context).changeAppTheme(
+                          themeMode: value!,
                         ),
-                        RadioListTile(
-                          value: ThemeMode.dark,
-                          groupValue: state.themeMode,
-                          onChanged: (value) =>
-                              BlocProvider.of<ThemeCubit>(context)
-                                  .changeAppTheme(
-                            themeMode: ThemeMode.dark,
-                          ),
-                          title: const BodyMedium(text: "Dark"),
+                        title: const BodyMedium(text: "Light"),
+                      ),
+                      RadioListTile<ThemeMode>(
+                        value: ThemeMode.dark,
+                        groupValue: state.themeMode,
+                        onChanged: (value) =>
+                            BlocProvider.of<ThemeCubit>(context).changeAppTheme(
+                          themeMode: value!,
                         ),
-                        RadioListTile(
-                          value: ThemeMode.system,
-                          groupValue: state.themeMode,
-                          onChanged: (value) =>
-                              BlocProvider.of<ThemeCubit>(context)
-                                  .changeAppTheme(
-                            themeMode: ThemeMode.system,
-                          ),
-                          title: const BodyMedium(text: "System"),
-                        )
-                      ],
-                    );
-                  },
-                ),
+                        title: const BodyMedium(text: "Dark"),
+                      ),
+                    ],
+                  );
+                },
               ),
             )
           ],

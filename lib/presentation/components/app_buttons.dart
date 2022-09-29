@@ -37,7 +37,7 @@ class ButtonText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextButton(
-      onPressed: onPressed(),
+      onPressed: () => onPressed(),
       child: Row(
         children: [
           text != null ? HeadlineMedium(text: text!) : const Nothing(),

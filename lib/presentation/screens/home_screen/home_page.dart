@@ -1,28 +1,37 @@
 import 'package:flutter/material.dart';
-import 'package:flutter3_startup_project/core/themes/app_theme.dart';
-import 'package:sizer/sizer.dart';
 
 import '../../components/app_pages.dart';
-import '../../components/app_texts.dart';
+import 'tabs/home_tab.dart';
+import 'tabs/profile_tab.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
   @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  int _selectedIndex = 0;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
+  static final List<Widget> _widgetOptions = [
+    const HomeTab(),
+    const ProfileTab(),
+  ];
+
+  @override
   Widget build(BuildContext context) {
-    return AppPage(
-      appBar: AppAppBar(title: "Hello"),
-      body: ListView.builder(
-        physics: BouncingScrollPhysics(),
-        itemCount: 40,
-        itemBuilder: (context, index) => Container(
-          padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 2.h),
-          margin: const EdgeInsets.all(8.0),
-          decoration: BoxDecoration(
-              color: Theme.of(context).foregroundColor,
-              borderRadius: BorderRadius.circular(5)),
-          child: BodyLarge(text: "$index"),
-        ),
+    return AppNavPage(
+      body: _widgetOptions[_selectedIndex],
+      navBar: BottomNavBar(
+        onTapped: _onItemTapped,
+        selectedIndex: _selectedIndex,
       ),
     );
   }

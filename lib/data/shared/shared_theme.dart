@@ -6,25 +6,21 @@ class SharedTheme {
 
   static Future<ThemeMode> getTheme() async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
-    final String theme = preferences.getString(themeKey) ?? "system";
-    if (theme == "light") {
-      return ThemeMode.light;
-    }
+    final String theme = preferences.getString(themeKey) ?? "light";
     if (theme == "dark") {
       return ThemeMode.dark;
     }
-    return ThemeMode.system;
+    return ThemeMode.light;
   }
 
   static Future setTheme({required ThemeMode themeMode}) async {
-    SharedPreferences preferences = await SharedPreferences.getInstance();
+    final SharedPreferences preferences = await SharedPreferences.getInstance();
+
     if (themeMode == ThemeMode.light) {
       preferences.setString(themeKey, "light");
     }
     if (themeMode == ThemeMode.dark) {
       preferences.setString(themeKey, "dark");
-    } else {
-      preferences.setString(themeKey, "system");
     }
   }
 }

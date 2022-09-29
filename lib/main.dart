@@ -35,52 +35,20 @@ class App extends StatelessWidget {
           create: (context) => AuthCubit(),
         )
       ],
-      child: const EnterApp(),
+      child: Sizer(builder: (context, orientation, deviceType) {
+        return MaterialApp(
+          title: Strings.appTitle,
+          theme: AppTheme.lightTheme,
+          darkTheme: AppTheme.darkTheme,
+          themeMode: context
+              .select((ThemeCubit themeCubit) => themeCubit.state.themeMode),
+          localizationsDelegates: context.localizationDelegates,
+          supportedLocales: context.supportedLocales,
+          locale: context.locale,
+          debugShowCheckedModeBanner: false,
+          onGenerateRoute: AppRouter.onGenerateRoute,
+        );
+      }),
     );
-  }
-}
-
-class EnterApp extends StatefulWidget {
-  const EnterApp({Key? key}) : super(key: key);
-
-  @override
-  State<EnterApp> createState() => _EnterAppState();
-}
-
-class _EnterAppState extends State<EnterApp> with WidgetsBindingObserver {
-  @override
-  void initState() {
-    WidgetsBinding.instance.addObserver(this);
-    super.initState();
-  }
-
-  @override
-  void didChangePlatformBrightness() {
-    context.read<ThemeCubit>().setTheme();
-    super.didChangePlatformBrightness();
-  }
-
-  @override
-  void dispose() {
-    WidgetsBinding.instance.removeObserver(this);
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Sizer(builder: (context, orientation, deviceType) {
-      return MaterialApp(
-        title: Strings.appTitle,
-        theme: AppTheme.lightTheme,
-        darkTheme: AppTheme.darkTheme,
-        themeMode: context
-            .select((ThemeCubit themeCubit) => themeCubit.state.themeMode),
-        localizationsDelegates: context.localizationDelegates,
-        supportedLocales: context.supportedLocales,
-        locale: context.locale,
-        debugShowCheckedModeBanner: false,
-        onGenerateRoute: AppRouter.onGenerateRoute,
-      );
-    });
   }
 }
