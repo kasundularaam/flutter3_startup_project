@@ -41,7 +41,10 @@ class AppTheme extends StatelessWidget {
 }
 
 final myLightTheme = AppThemeData(
-  themeData: ThemeData.light(),
+  themeData: ThemeData(
+    brightness: Brightness.light,
+    colorSchemeSeed: AppColors.primaryColor,
+  ),
   primaryColor: AppColors.lightPrimaryColor,
   backgroundColor: AppColors.lightBackgroundColor,
   foregroundColor: AppColors.lightForegroundColor,
@@ -50,7 +53,10 @@ final myLightTheme = AppThemeData(
 );
 
 final myDarkTheme = AppThemeData(
-  themeData: ThemeData.dark(),
+  themeData: ThemeData(
+    brightness: Brightness.dark,
+    colorSchemeSeed: AppColors.primaryColor,
+  ),
   primaryColor: AppColors.darkPrimaryColor,
   backgroundColor: AppColors.darkBackgroundColor,
   foregroundColor: AppColors.darkForegroundColor,

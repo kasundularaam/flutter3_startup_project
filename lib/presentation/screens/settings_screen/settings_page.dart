@@ -1,9 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter3_startup_project/core/themes/app_theme.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../../core/themes/app_theme.dart';
 import '../../../logic/theme_cubit/theme_cubit.dart';
 import '../../components/app_pages.dart';
 import '../../components/app_texts.dart';
@@ -32,6 +32,7 @@ class SettingsPage extends StatelessWidget {
                   children: [
                     const HeadlineMedium(text: "Theme"),
                     RadioListTile<ThemeMode>(
+                      activeColor: appTheme.primaryColor,
                       value: ThemeMode.light,
                       groupValue: state.themeMode,
                       onChanged: (value) =>
@@ -41,6 +42,7 @@ class SettingsPage extends StatelessWidget {
                       title: const BodyMedium(text: "Light"),
                     ),
                     RadioListTile<ThemeMode>(
+                      activeColor: appTheme.primaryColor,
                       value: ThemeMode.dark,
                       groupValue: state.themeMode,
                       onChanged: (value) =>
