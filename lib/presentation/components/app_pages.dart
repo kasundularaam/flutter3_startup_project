@@ -1,8 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
-import 'package:flutter3_startup_project/core/themes/app_theme.dart';
-
+import '../../core/themes/app_theme.dart';
 import 'app_texts.dart';
 
 class AppPage extends StatelessWidget {
@@ -18,7 +17,7 @@ class AppPage extends StatelessWidget {
   Widget build(BuildContext context) {
     if (appBar != null) {
       return Scaffold(
-        backgroundColor: Theme.of(context).backgroundColor,
+        backgroundColor: AppTheme.of(context).backgroundColor,
         body: SafeArea(
           child: NestedScrollView(
             headerSliverBuilder: (context, innerBoxIsScrolled) => [appBar!],
@@ -30,7 +29,7 @@ class AppPage extends StatelessWidget {
       );
     }
     return Scaffold(
-      backgroundColor: Theme.of(context).backgroundColor,
+      backgroundColor: AppTheme.of(context).backgroundColor,
       body: SafeArea(
         child: body,
       ),
@@ -70,7 +69,7 @@ class AppNavPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).backgroundColor,
+      backgroundColor: AppTheme.of(context).backgroundColor,
       body: SafeArea(child: body),
       bottomNavigationBar: navBar,
     );
@@ -88,11 +87,13 @@ class AppAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final appTheme = AppTheme.of(context);
+
     return SliverAppBar(
       title: HeadlineMedium(text: title),
       elevation: 0,
-      backgroundColor: Theme.of(context).foregroundColor,
-      foregroundColor: Theme.of(context).onGroundColorLow,
+      backgroundColor: appTheme.foregroundColor,
+      foregroundColor: appTheme.onGroundColorLow,
       centerTitle: true,
       actions: actions,
     );
@@ -117,6 +118,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
   Function get onItemTapped => widget.onTapped;
   @override
   Widget build(BuildContext context) {
+    final appTheme = AppTheme.of(context);
     return BottomNavigationBar(
       items: <BottomNavigationBarItem>[
         BottomNavigationBarItem(
@@ -124,20 +126,20 @@ class _BottomNavBarState extends State<BottomNavBar> {
             Icons.home_rounded,
           ),
           label: "home".tr(),
-          backgroundColor: Theme.of(context).foregroundColor,
+          backgroundColor: appTheme.foregroundColor,
         ),
         BottomNavigationBarItem(
           icon: const Icon(
             Icons.list_rounded,
           ),
           label: "requests".tr(),
-          backgroundColor: Theme.of(context).foregroundColor,
+          backgroundColor: appTheme.foregroundColor,
         ),
       ],
       type: BottomNavigationBarType.shifting,
       currentIndex: selectedIndex,
-      selectedItemColor: Theme.of(context).primaryColor,
-      unselectedItemColor: Theme.of(context).onGroundColorLow,
+      selectedItemColor: appTheme.primaryColor,
+      unselectedItemColor: appTheme.onGroundColorLow,
       iconSize: 40,
       onTap: (index) => onItemTapped(index),
       elevation: 5,

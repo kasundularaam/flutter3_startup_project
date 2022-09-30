@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../core/themes/app_theme.dart';
 import '../../data/shared/shared_theme.dart';
 
@@ -18,8 +17,7 @@ class ThemeCubit extends Cubit<ThemeState> {
 
   void setTheme() async {
     final ThemeMode selected = await SharedTheme.getTheme();
-    AppTheme.setStatusBarAndNavigationBarColors(selected);
-    AppTheme.currentMode(selected);
+    setStatusBarAndNavigationBarColors(selected);
     emit(ThemeState(themeMode: selected));
   }
 }

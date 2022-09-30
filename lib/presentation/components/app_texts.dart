@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter3_startup_project/core/themes/app_theme.dart';
 import 'package:sizer/sizer.dart';
+
+import '../../core/themes/app_theme.dart';
 
 class BodyLarge extends StatelessWidget {
   final String text;
@@ -15,6 +16,7 @@ class BodyLarge extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final appTheme = AppTheme.of(context);
     return Text(
       text,
       maxLines: maxLines,
@@ -22,7 +24,7 @@ class BodyLarge extends StatelessWidget {
       style: TextStyle(
         fontSize: 18.sp,
         fontWeight: FontWeight.w400,
-        color: color ?? Theme.of(context).onGroundColor,
+        color: color ?? appTheme.onGroundColor,
       ),
     );
   }
@@ -41,6 +43,7 @@ class BodyMedium extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final appTheme = AppTheme.of(context);
     return Text(
       text,
       maxLines: maxLines,
@@ -48,7 +51,7 @@ class BodyMedium extends StatelessWidget {
       style: TextStyle(
         fontSize: 14.sp,
         fontWeight: FontWeight.w400,
-        color: color ?? Theme.of(context).onGroundColor,
+        color: color ?? appTheme.onGroundColor,
       ),
     );
   }
@@ -67,6 +70,7 @@ class BodySmall extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final appTheme = AppTheme.of(context);
     return Text(
       text,
       maxLines: maxLines,
@@ -74,7 +78,7 @@ class BodySmall extends StatelessWidget {
       style: TextStyle(
         fontSize: 10.sp,
         fontWeight: FontWeight.w400,
-        color: color ?? Theme.of(context).onGroundColor,
+        color: color ?? appTheme.onGroundColor,
       ),
     );
   }
@@ -93,6 +97,7 @@ class HeadlineLarge extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final appTheme = AppTheme.of(context);
     return Text(
       text,
       maxLines: maxLines,
@@ -100,7 +105,7 @@ class HeadlineLarge extends StatelessWidget {
       style: TextStyle(
         fontSize: 32.sp,
         fontWeight: FontWeight.w700,
-        color: color ?? Theme.of(context).onGroundColor,
+        color: color ?? appTheme.onGroundColor,
       ),
     );
   }
@@ -119,6 +124,7 @@ class HeadlineMedium extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final appTheme = AppTheme.of(context);
     return Text(
       text,
       maxLines: maxLines,
@@ -126,7 +132,7 @@ class HeadlineMedium extends StatelessWidget {
       style: TextStyle(
         fontSize: 22.sp,
         fontWeight: FontWeight.w700,
-        color: color ?? Theme.of(context).onGroundColor,
+        color: color ?? appTheme.onGroundColor,
       ),
     );
   }
@@ -145,6 +151,7 @@ class HeadlineSmall extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final appTheme = AppTheme.of(context);
     return Text(
       text,
       maxLines: maxLines,
@@ -152,7 +159,7 @@ class HeadlineSmall extends StatelessWidget {
       style: TextStyle(
         fontSize: 14.sp,
         fontWeight: FontWeight.w700,
-        color: color ?? Theme.of(context).onGroundColor,
+        color: color ?? appTheme.onGroundColor,
       ),
     );
   }

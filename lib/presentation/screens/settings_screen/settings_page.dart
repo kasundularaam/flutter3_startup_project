@@ -12,47 +12,50 @@ class SettingsPage extends StatelessWidget {
   const SettingsPage({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) => AppPage(
-        appBar: AppAppBar(
-          title: "setting".tr(),
-        ),
-        body: Column(
-          children: [
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 2.h),
-              margin: const EdgeInsets.all(8.0),
-              decoration: BoxDecoration(
-                  color: Theme.of(context).foregroundColor,
-                  borderRadius: BorderRadius.circular(5)),
-              child: BlocBuilder<ThemeCubit, ThemeState>(
-                builder: (context, state) {
-                  return Column(
-                    children: [
-                      const HeadlineMedium(text: "Theme"),
-                      RadioListTile<ThemeMode>(
-                        value: ThemeMode.light,
-                        groupValue: state.themeMode,
-                        onChanged: (value) =>
-                            BlocProvider.of<ThemeCubit>(context).changeAppTheme(
-                          themeMode: value!,
-                        ),
-                        title: const BodyMedium(text: "Light"),
+  Widget build(BuildContext context) {
+    final appTheme = AppTheme.of(context);
+    return AppPage(
+      appBar: AppAppBar(
+        title: "setting".tr(),
+      ),
+      body: Column(
+        children: [
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 2.h),
+            margin: const EdgeInsets.all(8.0),
+            decoration: BoxDecoration(
+                color: appTheme.foregroundColor,
+                borderRadius: BorderRadius.circular(5)),
+            child: BlocBuilder<ThemeCubit, ThemeState>(
+              builder: (context, state) {
+                return Column(
+                  children: [
+                    const HeadlineMedium(text: "Theme"),
+                    RadioListTile<ThemeMode>(
+                      value: ThemeMode.light,
+                      groupValue: state.themeMode,
+                      onChanged: (value) =>
+                          BlocProvider.of<ThemeCubit>(context).changeAppTheme(
+                        themeMode: value!,
                       ),
-                      RadioListTile<ThemeMode>(
-                        value: ThemeMode.dark,
-                        groupValue: state.themeMode,
-                        onChanged: (value) =>
-                            BlocProvider.of<ThemeCubit>(context).changeAppTheme(
-                          themeMode: value!,
-                        ),
-                        title: const BodyMedium(text: "Dark"),
+                      title: const BodyMedium(text: "Light"),
+                    ),
+                    RadioListTile<ThemeMode>(
+                      value: ThemeMode.dark,
+                      groupValue: state.themeMode,
+                      onChanged: (value) =>
+                          BlocProvider.of<ThemeCubit>(context).changeAppTheme(
+                        themeMode: value!,
                       ),
-                    ],
-                  );
-                },
-              ),
-            )
-          ],
-        ),
-      );
+                      title: const BodyMedium(text: "Dark"),
+                    ),
+                  ],
+                );
+              },
+            ),
+          )
+        ],
+      ),
+    );
+  }
 }

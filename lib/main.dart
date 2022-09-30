@@ -38,10 +38,11 @@ class App extends StatelessWidget {
       child: Sizer(builder: (context, orientation, deviceType) {
         return MaterialApp(
           title: Strings.appTitle,
-          theme: AppTheme.lightTheme,
-          darkTheme: AppTheme.darkTheme,
-          themeMode: context
-              .select((ThemeCubit themeCubit) => themeCubit.state.themeMode),
+          builder: (context, child) => AppTheme(
+            light: myLightTheme,
+            dark: myDarkTheme,
+            child: child!,
+          ),
           localizationsDelegates: context.localizationDelegates,
           supportedLocales: context.supportedLocales,
           locale: context.locale,
