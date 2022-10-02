@@ -27,7 +27,7 @@ class _ProfileTabState extends State<ProfileTab> {
           )
         ],
       ),
-      body: HeadlineLarge(
+      body: const HeadlineLarge(
         text: "HELLO",
       ),
     );

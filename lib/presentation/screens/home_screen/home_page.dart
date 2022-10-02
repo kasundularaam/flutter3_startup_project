@@ -1,5 +1,7 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
+import '../../../core/themes/app_theme.dart';
 import '../../components/app_pages.dart';
 import 'tabs/home_tab.dart';
 import 'tabs/profile_tab.dart';
@@ -27,11 +29,28 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final appTheme = AppTheme.of(context);
     return AppNavPage(
       body: _widgetOptions[_selectedIndex],
       navBar: BottomNavBar(
         onTapped: _onItemTapped,
         selectedIndex: _selectedIndex,
+        items: <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: const Icon(
+              Icons.home_rounded,
+            ),
+            label: "home".tr(),
+            backgroundColor: appTheme.foregroundColor,
+          ),
+          BottomNavigationBarItem(
+            icon: const Icon(
+              Icons.person_rounded,
+            ),
+            label: "profile".tr(),
+            backgroundColor: appTheme.foregroundColor,
+          ),
+        ],
       ),
     );
   }

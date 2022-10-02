@@ -1,4 +1,3 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import '../../core/themes/app_theme.dart';
@@ -103,10 +102,12 @@ class AppAppBar extends StatelessWidget {
 class BottomNavBar extends StatefulWidget {
   final int selectedIndex;
   final Function(int) onTapped;
+  final List<BottomNavigationBarItem> items;
   const BottomNavBar({
     Key? key,
     required this.selectedIndex,
     required this.onTapped,
+    required this.items,
   }) : super(key: key);
 
   @override
@@ -116,26 +117,12 @@ class BottomNavBar extends StatefulWidget {
 class _BottomNavBarState extends State<BottomNavBar> {
   int get selectedIndex => widget.selectedIndex;
   Function get onItemTapped => widget.onTapped;
+  List<BottomNavigationBarItem> get items => widget.items;
   @override
   Widget build(BuildContext context) {
     final appTheme = AppTheme.of(context);
     return BottomNavigationBar(
-      items: <BottomNavigationBarItem>[
-        BottomNavigationBarItem(
-          icon: const Icon(
-            Icons.home_rounded,
-          ),
-          label: "home".tr(),
-          backgroundColor: appTheme.foregroundColor,
-        ),
-        BottomNavigationBarItem(
-          icon: const Icon(
-            Icons.list_rounded,
-          ),
-          label: "requests".tr(),
-          backgroundColor: appTheme.foregroundColor,
-        ),
-      ],
+      items: items,
       type: BottomNavigationBarType.shifting,
       currentIndex: selectedIndex,
       selectedItemColor: appTheme.primaryColor,
