@@ -1,10 +1,11 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter3_startup_project/presentation/components/app_buttons.dart';
-import 'package:flutter3_startup_project/presentation/components/app_navigation.dart';
-import 'package:flutter3_startup_project/presentation/components/app_pages.dart';
-import 'package:flutter3_startup_project/presentation/router/app_router.dart';
 
+import '../../../components/app_buttons.dart';
+import '../../../components/app_navigation.dart';
+import '../../../components/app_pages.dart';
 import '../../../components/app_texts.dart';
+import '../../../router/app_router.dart';
 
 class ProfileTab extends StatefulWidget {
   const ProfileTab({Key? key}) : super(key: key);
@@ -18,7 +19,7 @@ class _ProfileTabState extends State<ProfileTab> {
   Widget build(BuildContext context) {
     return AppTab(
       appBar: AppAppBar(
-        title: "Profile",
+        title: "profile".tr(),
         actions: [
           ButtonText(
             onPressed: () =>

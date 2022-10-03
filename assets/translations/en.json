@@ -16,7 +16,13 @@
 
     "home":"Home",
     "profile":"Profile",
-    "settings":"Settings"
+    "settings":"Settings",
+    "theme":"Theme",
+    "light":"Light",
+    "dark":"Dark",
+    "language":"Language",
+    "english":"English",
+    "sinhala":"Sinhala"
 
 
 }

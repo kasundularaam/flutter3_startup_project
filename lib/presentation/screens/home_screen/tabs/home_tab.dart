@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter3_startup_project/core/themes/app_theme.dart';
 import 'package:sizer/sizer.dart';
@@ -17,7 +18,7 @@ class _HomeTabState extends State<HomeTab> {
   Widget build(BuildContext context) {
     final appTheme = AppTheme.of(context);
     return AppTab(
-      appBar: const AppAppBar(title: "Hello"),
+      appBar: AppAppBar(title: "home".tr()),
       body: ListView.builder(
         physics: const BouncingScrollPhysics(),
         itemCount: 40,

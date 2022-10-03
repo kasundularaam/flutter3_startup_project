@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../core/exceptions/route_exception.dart';
+import '../../logic/language_cubit/language_cubit.dart';
 import '../screens/auth/login_screen/login_page.dart';
 import '../screens/auth/register_screen/register_page.dart';
 import '../screens/home_screen/home_page.dart';
@@ -35,7 +37,10 @@ class AppRouter {
         );
       case settingsPage:
         return MaterialPageRoute(
-          builder: (_) => const SettingsPage(),
+          builder: (_) => BlocProvider(
+            create: (context) => LanguageCubit(),
+            child: const SettingsPage(),
+          ),
         );
       default:
         throw const RouteException('Route not found!');

@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../../core/themes/app_theme.dart';
+import '../../../logic/language_cubit/language_cubit.dart';
 import '../../../logic/theme_cubit/theme_cubit.dart';
 import '../../components/app_pages.dart';
 import '../../components/app_texts.dart';
@@ -16,7 +17,7 @@ class SettingsPage extends StatelessWidget {
     final appTheme = AppTheme.of(context);
     return AppPage(
       appBar: AppAppBar(
-        title: "setting".tr(),
+        title: "settings".tr(),
       ),
       body: Column(
         children: [
@@ -30,7 +31,7 @@ class SettingsPage extends StatelessWidget {
               builder: (context, state) {
                 return Column(
                   children: [
-                    const HeadlineMedium(text: "Theme"),
+                    HeadlineMedium(text: "theme".tr()),
                     RadioListTile<ThemeMode>(
                       activeColor: appTheme.primaryColor,
                       value: ThemeMode.light,
@@ -39,7 +40,7 @@ class SettingsPage extends StatelessWidget {
                           BlocProvider.of<ThemeCubit>(context).changeAppTheme(
                         themeMode: value!,
                       ),
-                      title: const BodyMedium(text: "Light"),
+                      title: BodyMedium(text: "light".tr()),
                     ),
                     RadioListTile<ThemeMode>(
                       activeColor: appTheme.primaryColor,
@@ -49,7 +50,47 @@ class SettingsPage extends StatelessWidget {
                           BlocProvider.of<ThemeCubit>(context).changeAppTheme(
                         themeMode: value!,
                       ),
-                      title: const BodyMedium(text: "Dark"),
+                      title: BodyMedium(text: "dark".tr()),
+                    ),
+                  ],
+                );
+              },
+            ),
+          ),
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 2.h),
+            margin: const EdgeInsets.all(8.0),
+            decoration: BoxDecoration(
+                color: appTheme.foregroundColor,
+                borderRadius: BorderRadius.circular(5)),
+            child: BlocBuilder<LanguageCubit, LanguageState>(
+              builder: (context, state) {
+                return Column(
+                  children: [
+                    HeadlineMedium(text: "language".tr()),
+                    RadioListTile<String>(
+                      activeColor: appTheme.primaryColor,
+                      value: "en",
+                      groupValue: state.language,
+                      onChanged: (value) {
+                        BlocProvider.of<LanguageCubit>(context).changeLanguage(
+                          language: value!,
+                        );
+                        context.setLocale(const Locale("en"));
+                      },
+                      title: BodyMedium(text: "english".tr()),
+                    ),
+                    RadioListTile<String>(
+                      activeColor: appTheme.primaryColor,
+                      value: "si",
+                      groupValue: state.language,
+                      onChanged: (value) {
+                        BlocProvider.of<LanguageCubit>(context).changeLanguage(
+                          language: value!,
+                        );
+                        context.setLocale(const Locale("si"));
+                      },
+                      title: BodyMedium(text: "sinhala".tr()),
                     ),
                   ],
                 );
