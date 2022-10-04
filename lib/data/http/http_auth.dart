@@ -14,12 +14,13 @@ class HttpAuth {
   }
 
   final AppUser _appUser = AppUser(
-      uid: "uid",
-      name: "Kasun Dulara",
-      email: "kasundularaam@gmail.com",
-      address: "Kegalle",
-      age: 21,
-      password: "123456");
+    uid: "uid",
+    name: "Kasun Dulara",
+    email: "kasundularaam@gmail.com",
+    address: "Kegalle",
+    age: 21,
+    password: "123456",
+  );
 
   Future<AppUser> getUser({required String id}) async {
     try {
