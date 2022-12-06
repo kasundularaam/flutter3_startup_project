@@ -1,28 +1,35 @@
 {
-    "app_name":"Starter Project",
-    "login":"Login",
-    "register":"Register",
-    "name":"Name",
-    "email":"Email",
-    "phone":"Phone",
     "address":"Address",
     "age":"Age",
-    "password":"Password",
-    "confirm_password":"Confirm Password",
-    "register_succeed":"Successfully registered!",
-    "login_succeed":"Successfully logged in!",
-    "has_account":"Already have an account?",
-    "no_account":"Do you haven't an account?",
+    "appName":"Starter Project",
 
-    "home":"Home",
-    "profile":"Profile",
-    "settings":"Settings",
-    "theme":"Theme",
-    "light":"Light",
+    "confirmPassword":"Confirm Password",
+
     "dark":"Dark",
-    "language":"Language",
+
+    "email":"Email",
     "english":"English",
-    "sinhala":"Sinhala"
 
+    "hasAccount":"Already have an account?",
+    "home":"Home",
 
+    "language":"Language",
+    "light":"Light",
+    "login":"Login",
+    "loginSucceed":"Successfully logged in!",
+
+    "name":"Name",
+    "noAccount":"Do you haven't an account?",
+
+    "password":"Password",
+    "phone":"Phone",
+    "profile":"Profile",
+
+    "register":"Register",
+    "registerSucceed":"Successfully registered!",
+
+    "settings":"Settings",
+    "sinhala":"Sinhala",
+
+    "theme":"Theme"
 }

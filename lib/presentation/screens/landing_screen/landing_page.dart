@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../core/constants/strings.dart';
 import '../../../logic/auth_cubit/auth_cubit.dart';
 import '../../components/app_alerts.dart';
 import '../../components/app_navigation.dart';
@@ -39,7 +40,7 @@ class _LandingPageState extends State<LandingPage> {
           children: [
             Image.asset(AssetsPaths.landing),
             HeadlineMedium(
-              text: "app_name".tr(),
+              text: Strings.appName.tr(),
             ),
           ],
         ),

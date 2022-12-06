@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../../../core/constants/strings.dart';
 import '../../../../logic/register_cubit/register_cubit.dart';
 import '../../../components/app_alerts.dart';
 import '../../../components/app_buttons.dart';
@@ -36,37 +37,37 @@ class RegisterPage extends StatelessWidget {
           const VSpacer(height: 3),
           InputName(
             controller: nameCtrl,
-            hint: "name".tr(),
+            hint: Strings.name.tr(),
           ),
           const VSpacer(height: 1),
           InputEmail(
             controller: emailCtrl,
-            hint: "email".tr(),
+            hint: Strings.email.tr(),
           ),
           const VSpacer(height: 1),
           InputPhone(
             controller: phoneCtrl,
-            hint: "phone".tr(),
+            hint: Strings.phone.tr(),
           ),
           const VSpacer(height: 1),
           InputText(
             controller: addressCtrl,
-            hint: "address".tr(),
+            hint: Strings.address.tr(),
           ),
           const VSpacer(height: 1),
           InputNumber(
             controller: ageCtrl,
-            hint: "age".tr(),
+            hint: Strings.age.tr(),
           ),
           const VSpacer(height: 1),
           InputPassword(
             controller: passwordCtrl,
-            hint: "password".tr(),
+            hint: Strings.password.tr(),
           ),
           const VSpacer(height: 1),
           InputPassword(
             controller: confirmCtrl,
-            hint: "confirm_password".tr(),
+            hint: Strings.confirmPassword.tr(),
           ),
           const VSpacer(height: 1),
           BlocConsumer<RegisterCubit, RegisterState>(
@@ -75,7 +76,7 @@ class RegisterPage extends StatelessWidget {
                 showErrorBar(context, state.message);
               }
               if (state is RegisterSucceed) {
-                showSucceedBar(context, "register_succeed".tr());
+                showSucceedBar(context, Strings.registerSucceed.tr());
                 nameCtrl.clear();
                 emailCtrl.clear();
                 phoneCtrl.clear();
@@ -100,7 +101,7 @@ class RegisterPage extends StatelessWidget {
                           password: passwordCtrl.text,
                         ),
                       ),
-                  text: "login".tr());
+                  text: Strings.register.tr());
             },
           )
         ],

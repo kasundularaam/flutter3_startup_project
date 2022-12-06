@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../../../core/constants/strings.dart';
 import '../../../../logic/login_cubit/login_cubit.dart';
 import '../../../components/app_alerts.dart';
 import '../../../components/app_buttons.dart';
@@ -30,12 +31,12 @@ class LoginPage extends StatelessWidget {
           const VSpacer(height: 3),
           InputEmail(
             controller: emailCtrl,
-            hint: "email".tr(),
+            hint: Strings.email.tr(),
           ),
           const VSpacer(height: 1),
           InputPassword(
             controller: emailCtrl,
-            hint: "password".tr(),
+            hint: Strings.password.tr(),
           ),
           const VSpacer(height: 1),
           BlocConsumer<LoginCubit, LoginState>(
@@ -44,7 +45,7 @@ class LoginPage extends StatelessWidget {
                 showErrorBar(context, state.message);
               }
               if (state is LoginSucceed) {
-                showSucceedBar(context, "login_succeed".tr());
+                showSucceedBar(context, Strings.loginSucceed.tr());
                 emailCtrl.clear();
                 passwordCtrl.clear();
                 navAndClear(context: context, route: AppRouter.landingPage);
@@ -54,7 +55,7 @@ class LoginPage extends StatelessWidget {
               return ButtonFilled(
                   onPressed: () => BlocProvider.of<LoginCubit>(context).login(
                       email: emailCtrl.text, password: passwordCtrl.text),
-                  text: "login".tr());
+                  text: Strings.login.tr());
             },
           )
         ],

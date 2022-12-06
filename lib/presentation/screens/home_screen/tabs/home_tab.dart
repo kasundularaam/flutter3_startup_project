@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter3_startup_project/core/themes/app_theme.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../../../core/constants/strings.dart';
 import '../../../components/app_pages.dart';
 import '../../../components/app_texts.dart';
 
@@ -18,7 +19,7 @@ class _HomeTabState extends State<HomeTab> {
   Widget build(BuildContext context) {
     final appTheme = AppTheme.of(context);
     return AppTab(
-      appBar: AppAppBar(title: "home".tr()),
+      appBar: AppAppBar(title: Strings.home.tr()),
       body: ListView.builder(
         physics: const BouncingScrollPhysics(),
         itemCount: 40,

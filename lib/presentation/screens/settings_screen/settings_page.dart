@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../../core/constants/strings.dart';
 import '../../../core/themes/app_theme.dart';
 import '../../../logic/language_cubit/language_cubit.dart';
 import '../../../logic/theme_cubit/theme_cubit.dart';
@@ -17,7 +18,7 @@ class SettingsPage extends StatelessWidget {
     final appTheme = AppTheme.of(context);
     return AppPage(
       appBar: AppAppBar(
-        title: "settings".tr(),
+        title: Strings.settings.tr(),
       ),
       body: Column(
         children: [
@@ -31,7 +32,7 @@ class SettingsPage extends StatelessWidget {
               builder: (context, state) {
                 return Column(
                   children: [
-                    HeadlineMedium(text: "theme".tr()),
+                    HeadlineMedium(text: Strings.theme.tr()),
                     RadioListTile<ThemeMode>(
                       activeColor: appTheme.primaryColor,
                       value: ThemeMode.light,
@@ -40,7 +41,7 @@ class SettingsPage extends StatelessWidget {
                           BlocProvider.of<ThemeCubit>(context).changeAppTheme(
                         themeMode: value!,
                       ),
-                      title: BodyMedium(text: "light".tr()),
+                      title: BodyMedium(text: Strings.light.tr()),
                     ),
                     RadioListTile<ThemeMode>(
                       activeColor: appTheme.primaryColor,
@@ -50,7 +51,7 @@ class SettingsPage extends StatelessWidget {
                           BlocProvider.of<ThemeCubit>(context).changeAppTheme(
                         themeMode: value!,
                       ),
-                      title: BodyMedium(text: "dark".tr()),
+                      title: BodyMedium(text: Strings.dark.tr()),
                     ),
                   ],
                 );
@@ -67,7 +68,7 @@ class SettingsPage extends StatelessWidget {
               builder: (context, state) {
                 return Column(
                   children: [
-                    HeadlineMedium(text: "language".tr()),
+                    HeadlineMedium(text: Strings.language.tr()),
                     RadioListTile<String>(
                       activeColor: appTheme.primaryColor,
                       value: "en",
@@ -78,7 +79,7 @@ class SettingsPage extends StatelessWidget {
                         );
                         context.setLocale(const Locale("en"));
                       },
-                      title: BodyMedium(text: "english".tr()),
+                      title: BodyMedium(text: Strings.english.tr()),
                     ),
                     RadioListTile<String>(
                       activeColor: appTheme.primaryColor,
@@ -90,7 +91,7 @@ class SettingsPage extends StatelessWidget {
                         );
                         context.setLocale(const Locale("si"));
                       },
-                      title: BodyMedium(text: "sinhala".tr()),
+                      title: BodyMedium(text: Strings.sinhala.tr()),
                     ),
                   ],
                 );

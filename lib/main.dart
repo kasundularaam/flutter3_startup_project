@@ -37,7 +37,7 @@ class App extends StatelessWidget {
       ],
       child: Sizer(builder: (context, orientation, deviceType) {
         return MaterialApp(
-          title: Strings.appTitle,
+          title: Strings.appName,
           builder: (context, child) => AppTheme(
             light: myLightTheme,
             dark: myDarkTheme,
