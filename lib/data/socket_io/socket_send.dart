@@ -15,10 +15,7 @@ class SocketSend {
     socket.connect();
     dataStream.listen(
       (String data) {
-        socket.emit(
-          "event",
-          data,
-        );
+        socket.emit("event", data);
       },
     );
   }
